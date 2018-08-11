@@ -2,11 +2,20 @@ package com.rxhlv.crypto.buysellcalc.price.rest.request;
 
 
 import com.rxhlv.crypto.buysellcalc.price.dto.BuySellCalculatorDto;
+import io.swagger.annotations.ApiModelProperty;
 
 public class BuySellCalculatorRequest {
 
+    @ApiModelProperty(required = true,
+            value = "The fee percentage an exchange charges per buy/sell operation")
     private double feePercentage;
+
+    @ApiModelProperty(required = true,
+            value = "The percentage of profit you want to make after selling")
     private double profitPercentage;
+
+    @ApiModelProperty(required = true,
+            value = "The price at which you bought or intend to buy")
     private double buyPrice;
 
     public BuySellCalculatorDto toDto() {
