@@ -46,4 +46,15 @@ public class BuySellCalculatorService implements IBuySellCalculatorService {
 
         return new BuySellCalculatorResultDto(sellPrice);
     }
+
+    @Override
+    public BuySellCalculatorResultDto shortSell(BuySellCalculatorDto dto) {
+        dto.setBuyPrice(ONE / dto.getBuyPrice());
+
+        BuySellCalculatorResultDto result = calculatePrimitives(dto);
+
+        result.setSellPrice(ONE / result.getSellPrice());
+
+        return result;
+    }
 }
