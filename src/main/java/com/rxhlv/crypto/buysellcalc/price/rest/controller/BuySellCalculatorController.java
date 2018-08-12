@@ -29,4 +29,12 @@ public class BuySellCalculatorController implements IBuySellCalculatorController
 
         return new BuySellCalculatorResponse(result);
     }
+
+    @Override
+    @PostMapping("short-sell")
+    public BuySellCalculatorResponse shortSell(@RequestBody BuySellCalculatorRequest request) {
+        BuySellCalculatorResultDto result = fiatPriceCalculatorService.shortSell(request.toDto());
+
+        return new BuySellCalculatorResponse(result);
+    }
 }
