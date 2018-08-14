@@ -2,4 +2,6 @@ service: default
 env: flex
 runtime: java
 runtime_config:
-        jdk: openjdk8
+  jdk: openjdk8
+automatic_scaling:
+  max_num_instances: 1
